@@ -1,0 +1,99 @@
+.contact__form {
+  .inputs-block {
+    display: flex;
+    justify-content: space-between;
+    & > div {
+      flex-basis: 45%;
+    }
+  }
+}
+
+.form-group {
+  .form-group-label {
+    display: block;
+    color: #c6c8d0;
+    padding: 0 0 20px 47px;
+  }
+  .form-control {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid $text-color;
+    outline: none;
+    margin-bottom: 38px;
+    padding: 0 0 7px 47px;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 2;
+    &:focus {
+      border-bottom: 1px solid $decor-color-1;
+    }
+    &.user {
+      background: svg-load('user.svg', fill=#c6c8d0, width=26, height=30);
+      background-repeat: no-repeat;
+      background-position: left top 2px;
+      &:focus {
+        background: svg-load('user.svg', fill=$decor-color-1, width=26, height=30);
+        background-repeat: no-repeat;
+        background-position: left top 2px;
+      }
+    }
+    &.email {
+      background: svg-load('envelope.svg', fill=#c6c8d0, width=30, height=23);
+      background-repeat: no-repeat;
+      background-position: left top 5px;
+      &:focus {
+        background: svg-load('envelope.svg', fill=$decor-color-1, width=30, height=23);
+        background-repeat: no-repeat;
+        background-position: left top 5px;
+      }
+    }
+    &::-webkit-input-placeholder {
+      font-weight: bold;
+      color: rgba(65,76,99,1);
+    }
+    &:-moz-placeholder {
+      font-weight: bold;
+      color: rgba(65,76,99,1);
+    }
+    &::-moz-placeholder {
+      font-weight: bold;
+      color: rgba(65,76,99,1);
+    }
+    &:-ms-input-placeholder {
+      font-weight: bold;
+      color: rgba(65,76,99,1);
+    }
+    &.message {
+      resize: vertical;
+      background: svg-load('message.svg', fill=#c6c8d0, width=30, height=30);
+      background-repeat: no-repeat;
+      background-position: left top 2px;
+      margin-bottom: 55px;
+      &:focus {
+        background: svg-load('message.svg', fill=$decor-color-1, width=30, height=30);
+        background-repeat: no-repeat;
+        background-position: left top 2px;
+      }
+      &::-webkit-input-placeholder {
+        width: 50%;
+        line-height: 1.9;
+      }
+      &:-moz-placeholder {
+        width: 50%;
+        line-height: 2;
+
+      }
+      &::-moz-placeholder {
+        width: 50%;
+        line-height: 2;
+
+      }
+      &:-ms-input-placeholder {
+        width: 50%;
+        line-height: 2;
+
+      }
+    }
+  }
+}

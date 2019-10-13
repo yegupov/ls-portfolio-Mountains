@@ -1,5 +1,9 @@
 {
+  "font_default": "'Open Sans', Helvetica, sans-serif",
   "text-color": "#414c63",
+  "text-color-lighter": "#a0a3b0",
+  "decor-color-1": "#7c00ea",
+  "decor-color-2": "#5000ed",
   "links-color": "#4b6fd7",
   "bp-desktop-hd": "1800px",
   "bp-desktop": "1200px",
