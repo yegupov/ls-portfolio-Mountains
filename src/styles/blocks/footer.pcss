@@ -1,0 +1,105 @@
+.footer {
+  padding: 95px 0 90px;
+  background-color: #252830;
+  color: #3b3e45;
+  font-weight: 400;
+  .footer__content {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    justify-content: space-between;
+    .footer__copy {
+      flex-basis: 15%;
+      align-self: flex-start;
+      font-size: 48px;
+      font-weight: 600;
+      line-height: 0.9;
+    }
+    .footer__site-name {
+      flex-basis: 19.12%;
+      line-height: 1.9;
+      .footer__name {
+        display: block;
+        height: 70px;
+        text-transform: uppercase;
+        color: #fff;
+        font-weight: bold;
+        line-height: 1.7;
+        padding-right: 50%;
+      }
+    }
+    .footer__right {
+      flex-basis: 65.88%;
+      .footer__menu {
+        height: 70px;
+        .footer-nav__list {
+          .footer-nav__item {
+            display: inline-block;
+            margin-right: 60px;
+            &:last-child {
+              margin-right: 0;
+            }
+            .footer-nav__link {
+              color: #fff;
+              &:hover {
+                color: $links-color;
+              }
+            }
+          }
+        }
+      }
+      .footer__social {
+        display: inline-block;
+        vertical-align: top;
+        width: 51.58%;
+        padding-right: 16%;
+        line-height: 1.9;
+        .footer-social-btns {
+          margin-top: 15px;
+          .footer-socials {
+            .footer-socials__item {
+              display: inline-block;
+              margin-right: 20px;
+              width: 50px;
+              height: 50px;
+              line-height: 43px;
+              border-radius: 50%;
+              border: 1px solid #3b3e45;
+              text-align: center;
+              transition: all 0.2s ease;
+              &:last-child {
+                margin-right: 0;
+              }
+              .footer-socials__link {
+                display: inline-block;
+                .social-icon {
+                  fill: #1a1c22;
+                  transform: scale(0.88, 0.88);
+                }
+              }
+              &:hover {
+                cursor: pointer;
+                border: 1px solid $links-color;
+                .social-icon {
+                  fill: $links-color;
+                }
+              }
+            }
+          }
+        }
+      }
+      .footer__quote {
+        display: inline-block;
+        vertical-align: top;
+        width: 48.4%;
+        line-height: 1.9;
+        .footer__quote-author {
+          display: block;
+          font-size: 16px;
+          font-style: italic;
+          color: #fff;
+        }
+      }
+    }
+  }
+}

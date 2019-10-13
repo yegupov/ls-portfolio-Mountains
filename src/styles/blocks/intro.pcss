@@ -1,0 +1,52 @@
+.intro {
+  position: relative;
+  height: calc(100vh - 90px);
+  padding: 20vh 30% 0;
+  text-align: center;
+  .headline {
+    span:first-child {
+      display: block;
+      padding: 0 25% 25px;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      font-weight: 600;
+      //-color: lighten($text-color, 40%);
+      color: $text-color-lighter;
+      @include desktop() {
+        display: inline-block;
+      }
+    }
+    span:last-child {
+      font-size: 4.5rem;
+      font-weight: 800;
+      line-height: 0.9;
+      letter-spacing: -0.03rem
+    }
+  }
+  .scroll-down {
+    position: absolute;
+    bottom: 7vh;
+    left: calc(50% - 50px);
+    width: 100px;
+    text-align: center;
+    .scroll-down__link {
+      display: inline-block;
+      padding: 8px 0;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      .scroll-down-icon {
+        vertical-align: middle;
+        height: 30px;
+        width: auto;
+        fill: $text-color;
+        animation: pulse 5s ease infinite;
+      }
+      &:hover {
+        color: $links-color;
+        .scroll-down-icon {
+          fill: $links-color;
+        }
+      }
+    }
+  }
+}

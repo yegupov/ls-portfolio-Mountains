@@ -1,0 +1,11 @@
+header#nome.header
+  .container
+    .header-content
+      .header-logo
+        a.logo-link(href='/' title='Геннадий Егупов') ГЕ
+      .header-menu
+        +nav('menu', ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"], 0)
+      .header-social
+        each val, key in {'insta':'Instagram','vk':'VK','github':'GitHub'}
+          a.header-social__link(href='#' title=val target='_blank')
+            +icon(key, 'social-icon ' + key)

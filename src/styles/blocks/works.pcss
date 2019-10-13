@@ -1,0 +1,19 @@
+.works {
+  position: relative;
+  padding-bottom: 270px;
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 5;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 90px calc(50vw - 8px) 0 calc(50vw - 8px);
+    border-color: white transparent transparent transparent;
+  }
+  .works-title {
+    margin-bottom: 85px;
+  }  
+}
