@@ -1,24 +1,32 @@
-.skills-content
-  h3 Front-end
-  ul.skills-list
-    +skill('HTML5', '75')
-    +skill('CSS3', '75')
-    +skill('Javascript', '50')
-    li.skills-item
-      .skills-item-name
-        span Jquery и&nbsp;Vue.js
-      svg.persentage(viewBox='0 0 100 100' preserveAspectRatio='none')
-        circle.circle.circle-under(cx='50' cy='50' r='40')
-        circle.circle.circle-above(cx='50' cy='50' r='40' style='animation-delay: -30s')
-.skills-content
-  h3 Workflow
-  ul.skills-list
-    +skill('GIT', '15')
-    +skill('Terminal', '15')
-    +skill('Gulp', '15')
-    +skill('Webpack', '15')
-  svg(width="0" height="0")
-    defs
-      linearGradient(id="skill" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1")
-        stop(offset="0%" stop-color="#5000ed")
-        stop(offset="100%" stop-color="#7c00ea")
+script(type="text/x-template")#skills-list
+  //-pre {{skills}}
+  ul.skills__content
+    li.skills__content-item(v-for="skill in skills" :key="skill.skillsGroup")
+      skills-row(
+        :skill="skill"
+      )
+    li.skills__content-item
+      svg(width="0" height="0")
+        defs
+          linearGradient(id="skill" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1")
+            stop(offset="0%" stop-color="#5000ed")
+            stop(offset="100%" stop-color="#7c00ea")
+
+script(type="text/x-template")#skills-row
+  .skills-row
+    //-pre {{skill}}
+    h3.skills__caption {{skill.skillsGroup}}  
+    ul.skills__list
+      li.skills__item(v-for="(skillPercent, skillName) in skill.skills")
+        skill(
+          :skillName="skillName"
+          :skillPercent="skillPercent"
+        )
+
+script(type="text/x-template")#skill
+  .skill
+    .skills__item-name
+      span.skills__name-text {{skillName}}
+    svg.persentage(viewBox='0 0 100 100' preserveAspectRatio='none')
+      circle.circle.circle-under(cx='50' cy='50' r='40')
+      circle.circle.circle-above(cx='50' cy='50' r='40' ref="color-circle")

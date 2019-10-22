@@ -1,0 +1,24 @@
+.footer__nav {
+  .footer__nav-list {
+    .footer__nav-item {
+      display: inline-block;
+      margin-right: 60px;
+      @include 800px() {
+        margin-bottom: 25px;
+      }
+      @include phones() {
+        width: 50%;
+        margin-right: 0;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+      .footer__nav-link {
+        color: #fff;
+        &:hover {
+          color: $links-color;
+        }
+      }
+    }
+  }
+}

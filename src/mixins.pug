@@ -1,13 +1,13 @@
 mixin nav(className, items, activeItem)
   nav(class=`${className}`)
     ul(class=`${className}__list`)
-      each item, index in items
-        li(class=`${className}__item` + ( (index === activeItem) ? ` ${className}__item_active` : '') )
-          a(class=`${className}__link` href='#')= item
+      each val, key in items
+        li(class=`${className}__item` + ( (val === activeItem) ? ` ${className}__item_active` : '') )
+          a(class=`${className}__link` href='#' + val)= key
 
 mixin skill(name, persentage)
-  li.skills-item
-    .skills-item-name
+  li.skills__item
+    .skills__item-name
       span=name
     svg.persentage(viewBox='0 0 100 100' preserveAspectRatio='none')
       circle.circle.circle-under(cx='50' cy='50' r='40')
@@ -20,3 +20,6 @@ mixin icon(name, className)
 
 mixin image(path, className, alt)
   img(src=require(`images/${path}`) class=className alt=alt)
+    
+mixin image-adaptive(path1, path2, className, alt)
+  img(src=require(`images/${path1}`) class=className alt=alt srcset=require(`images/${path2}`) + ' 1280w, ' + require(`images/${path1}`) + ' 1920w' sizes='(max-width: 1280px) 1280px, 1920px')

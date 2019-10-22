@@ -1,4 +1,5 @@
 html {
+  scroll-behavior: smooth;
   @include desktop {
     font-size: 15px;
   }
@@ -39,6 +40,7 @@ body {
 
 section {
   width: 100%;
+  min-height: 400px;
   overflow-x: hidden;
 }
 
@@ -76,11 +78,20 @@ h6 {
   font-size: 36px;
   font-weight: bold;
   color: $text-color;
+  @include phones() {
+    font-size: 24px;
+  }
 }
 
 p {
   margin: 0;
   padding: 0;
+}
+
+.basic-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: $text-color-lighter;
 }
 
 button[type="button"] {
@@ -100,6 +111,9 @@ button[type="button"] {
   outline: none;
   transition: all 0.2s ease;
   cursor: pointer;
+  @include 375px() {
+    padding: 30px 100px;
+  }
   &:hover {
     background: linear-gradient(to right, $decor-color-1 55%,$decor-color-2 100%);
   }
@@ -150,3 +164,5 @@ img {
     height: 23px;
   }
 }
+
+.display-none {display: none !important;}

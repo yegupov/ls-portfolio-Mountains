@@ -1,0 +1,6 @@
+nav.footer__nav
+  ul.footer__nav-list
+    - var menu = {'Главная':'home', 'Обо мне':'about', 'Навыки':'skills', 'Работы':'works', 'Отзывы':'reviews', 'Связаться':'contact'}
+    each val, key in menu
+      li.footer__nav-item
+        a.footer__nav-link(href='#' + val) #{key}

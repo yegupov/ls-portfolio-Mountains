@@ -1,8 +1,9 @@
 # ls-portfolio-Mountains
 Landing page of training course at Loftschool.com
-Course: Advanced web
-07.10.2019 - 13.11.2019
-Student: Gennady Yegupov
+
+**Course: Advanced web 07.10.2019 - 13.11.2019**
+
+**Student: Gennady Yegupov**
 
 # Учебный шаблон проекта Portfolio
 

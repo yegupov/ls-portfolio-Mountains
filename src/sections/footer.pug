@@ -1,25 +1,15 @@
 footer.footer
   .container
     .footer__content
-      .footer__copy © 2019
-      .footer__site-name
-        span.footer__name Геннадий Егупов
-        span Личный сайт<br/>веб-разработчика
+      .footer__copy-name
+        .footer__copy © 2019
+        .footer__site-name
+          span.footer__name Геннадий Егупов
+          span.footer__name-text Личный сайт веб&#8209;разработчика
       .footer__right
         .footer__menu
-          nav.footer-nav
-            ul.footer-nav__list
-              - var menu = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"]
-              each item in menu
-                li.footer-nav__item
-                  a.footer-nav__link(href='#') #{item}
+          include ../components/footer-menu
         .footer__social Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
-          .footer-social-btns
-            - var icons = ['insta', 'vk', 'github']
-            ul.footer-socials
-              each item in icons
-                li.footer-socials__item
-                  a.footer-socials__link(href='#' target='_blank')
-                    +icon(`${item}`, 'social-icon ' + `${item}`)
+          include ../components/socials-footer          
         .footer__quote Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
           span.footer__quote-author Martin Golding

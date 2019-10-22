@@ -1,15 +1,16 @@
 form#contact_form.contact__form(method='post')
-  .inputs-block
-    .form-group
-      label.form-group-label(for='user') Введите ваше имя
-      input.form-control.user#user(type='text' name='user' placeholder='Ковальчук Дмитрий')
-      span.form-group__error
-    .form-group
-      label.form-group-label(for='email') Введите ваш Email
-      input.form-control.email#email(type='email' name='email' placeholder='loftschool@study.com')
-      span.form-group__error
-  .form-group
-    label.form-group-label(for='message') Сообщение к письму
-    textarea.form-control.message#message(name='message' rows='2' placeholder='Требуется ваша помощь в создании сайта. Интересуют сроки и цена вопроса')
-    span.form-group__error
-  input.btn.btn-primary#contact_form_submit(type='submit' value='Отправить')
+  .contact__input-fields
+    .contact__group
+      label.contact__group-label(for='user') Введите ваше имя
+      input.contact__group-control.contact__group-control_user#user(type='text' name='user' placeholder='Ковальчук Дмитрий')
+      span.contact__group-error
+    .contact__group
+      label.contact__group-label(for='email') Введите ваш Email
+      input.contact__group-control.contact__group-control_email#email(type='email' name='email' placeholder='loftschool@study.com')
+      span.contact__group-error
+  .contact__group
+    label.contact__group-label(for='message') Сообщение к письму
+    textarea.contact__group-control.contact__group-control_message#message(name='message' rows='2' placeholder='Требуется ваша помощь в создании сайта. Интересуют сроки и цена вопроса')
+    span.contact__group-error
+  .contact__btn
+    input.btn.btn-primary#contact_form_submit(type='submit' value='Отправить')
