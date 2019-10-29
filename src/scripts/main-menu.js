@@ -34,21 +34,21 @@ window.addEventListener('scroll', function() {
 
 
 // Mobile menu
-if (window.screen.width <= 768) {
+let widthWindow = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+if (widthWindow <= 768) {
   let layerOverlay = document.createElement('div');
   layerOverlay.classList.add('overlay-mob','display-none');
 
   menuMobile.after(layerOverlay);
 
   linkMobileMenu.addEventListener('click', (event) => {
+    //-console.log('Clickkkk');
     event.preventDefault();
     showHideMobileMenu();
   });
 
   menuLinks.forEach(function(item) {
     item.addEventListener('click', function(event) {
-      //- Smooth scrolling
-      //-let hrefMenuLink = item.getAttribute('href');
       hideMobileMenu();
     });
   });
@@ -57,7 +57,7 @@ if (window.screen.width <= 768) {
     hideMobileMenu()
   });
 
-  if (window.screen.width <= 414) {
+  if (widthWindow <= 480) {
     const socialBtnsHeader = document.querySelector('.header__socials');
     let socialBtnsMobileMenu = document.createElement('div');
     socialBtnsMobileMenu.classList.add('socials-mobmenu');

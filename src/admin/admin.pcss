@@ -1,0 +1,1016 @@
+.admin-wrapper {
+  min-height: 100vh;
+  background: url('../images/content/bg-wrapper-top.jpg') no-repeat;
+  background-position: center top;
+  background-size: cover;
+}
+
+.maincontent {
+  min-height: 100vh;
+  background: rgba(255,255,255,0.8)
+}
+
+.admin {}
+
+.modal-window {
+  position: fixed;
+  z-index: 9997;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  .modal-window__body {
+    position: relative;
+    z-index: 9999;
+    width: 85%;
+    max-width: 570px;
+    height: auto;
+    padding: 30px 4%;
+    background-color: #fff;
+    .modal-window__headline {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 40px;
+    }
+    .modal-window__close-btn {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      width: 23px;
+      height: 23px;
+      &:after {
+        position: absolute;
+        content: '×';
+        top: -8px;
+        left: 0;
+        font-size: 40px;
+        line-height: 1;
+      }
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+    .contact__input-fields {
+      flex-wrap: wrap;
+      & > div {
+        flex-basis: 100%;
+      }
+    }
+    .contact__group-control_password {
+      background: svg-load('key.svg', fill=#c6c8d0, width=26, height=30);
+      background-repeat: no-repeat;
+      background-position: left top 2px;
+      &:focus {
+        background: svg-load('key.svg', fill=$decor-color-1, width=26, height=30);
+        background-repeat: no-repeat;
+        background-position: left top 2px;
+      }
+      @include 375px() {
+        background: none;
+      }
+    }
+    .contact__btn {
+      padding: 15px 0;
+      text-align: center;
+    }
+  }
+  .modal-window__overlay {
+    position: absolute;
+    z-index: 9998;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(65,76,99,0.85);
+  }
+}
+
+.admin__header {
+  padding: 20px 0;
+  color:#fff;
+  background: rgba(62,62,90,1);
+  background: linear-gradient(to right, rgba(62,62,90,1) 0%, rgba(68,69,115,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3e3e5a', endColorstr='#444573', GradientType=1 );
+  .admin__header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include phones() {
+      display: block;
+      position: relative;
+    }
+  }
+}
+
+.user {
+  display: inline-block;
+  .user__photo {
+    display: inline-block;
+    margin-right: 8px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+    vertical-align: middle;
+    @include phones() {
+      vertical-align: top;
+    }
+    .user__photo-pic {
+      width: 100%;
+    }
+  }
+  .user__name {
+    display: inline-block;
+    margin-right: 20px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .admin__header-headline {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 300;
+    @include phones() {
+      display: none;
+    }
+  }
+}
+
+.logout {
+  text-align: right;
+  @include phones() {
+    display: inline-block;
+    text-align: left;
+    position: absolute;
+    left: 53px;
+    top: 25px;
+  }
+  .logout__link {
+    text-decoration: underline;
+    color:#fff;
+  }
+}
+
+.admin__tabs {
+  padding: 0 0 50px;
+}
+
+.admin__nav {
+  background-color: #fff;
+}
+
+.tabs__list {
+  .tabs__item {
+    display: inline-block;
+    margin: 0;
+    padding: 25px;
+    font-size: 16px;
+    font-weight: 400;
+    border-bottom: 3px solid rgba(55,59,208,0);
+    cursor: pointer;
+  }
+  .tabs__item-active {
+    color: #373bd0;
+    border-bottom: 3px solid rgba(55,59,208,1);
+  }
+}
+
+.tabs__container {
+  .tabs__tab-content {
+    margin: 0;
+    &:not(:first-child) {
+      display: none;
+    }
+    .tabs__tab-content-header {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 120px;
+      @include phones() {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 40px 0;
+      }
+      .tabs__tab-headline {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0;
+        font-weight: bold;
+        @include phones() {
+          width: 100%;
+        }
+      }
+      .tabs__tab-addgroup {
+        margin-left: 45px;
+        margin-top: 3px;
+        @include phones() {
+          margin: 25px 0 0 -6px;
+          width: 100%;
+        }
+        .tabs__tab-addgroup-link {
+          font-weight: 600;
+          text-decoration: none;
+          .tabs__tab-addgroup-addbtn {
+            vertical-align: middle;
+            margin-right: 8px;
+            transform: scale(0.7, 0.7);
+          }
+        }
+      }
+    }
+    .tabs__list-items {
+      display: flex;
+      flex-wrap: wrap;
+      @include tablets() {
+        justify-content: space-between;
+      }
+      @include phones() {
+        width: 118%;
+        margin-left: -9%;
+      }
+    }
+  }
+}
+
+/* --------------------------------------------------     SKILLS    ---------------------------------------------- */
+
+.skills {
+  position: relative;
+  width: calc(50% - 20px);
+  padding: 30px 35px 140px 35px;
+  margin: 0 40px 40px 0;
+  &:nth-child(2n) {
+    margin: 0 0 40px 0;
+  }
+  @include phones() {
+    width: 100%;
+    margin: 0 0 30px 0 !important;
+  }
+  .skills__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    .card__input {
+      width: 60%;
+      font-weight: 600;
+    }
+    .skills__btns {
+      margin-right: 2%;
+      text-align: right;
+      .skills__btn {
+        margin-left: 15px;
+      }
+    }
+  }
+  .skills__list {
+    .skills__list-item {
+      margin: 0;
+      padding: 0;
+      .skills__list-row {
+        display: flex;
+        justify-content: space-between;
+        margin: 0;
+        padding: 0;
+        .skills__list-cell {
+          text-align: center;
+          padding: 6px 0;
+          &:nth-child(1) {
+            width: 62%;
+            margin-right: 3%;
+            text-align: left;
+            @include tablets() {
+              width: 50%;
+            }
+          }
+          &:nth-child(2) {
+            position: relative;
+            width: 16%;
+            margin-right: 5%;
+            @include tablets() {
+              width: 28%;
+            }
+            &:after {
+              position: absolute;
+              right: 20px;
+              top: 9px;
+              content: '%';
+              color: #9da9c3;
+              font-size: 18px;
+              @include tablets() {
+                top: 11px;
+              }
+            }
+          }
+          &:nth-child(3) {
+            width: 7%;
+            min-width: 20px;
+          }
+          &:nth-child(4) {
+            width: 7%;
+            min-width: 20px;
+          }
+        }
+      }
+      .skills__list-row-active {
+        .skills__list-cell:nth-child(1) {
+          border-bottom: 1px solid #000;
+        }
+        .skills__list-cell:nth-child(2) {
+          border-bottom: 1px solid #373bd0;
+        }
+      }
+    }
+  }
+  .skills__footer {
+    position: absolute;
+    left: 0;
+    bottom: 40px;
+    width: 97%;
+    @include tablets() {
+      width: 94%;
+    }
+    @include phones() {
+      width: 97%;
+    }
+    .skills__footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .skills__footer-cell {
+        text-align: center;
+        &:nth-child(1) {
+          width: 61%;
+          padding-bottom: 8px;
+          margin: 0 3% 0 25%;
+          text-align: left;
+          @include tablets() {
+            width: 45%;
+            margin: 0 3% 0 35px;
+          }
+          .card__input-active {
+            &::-webkit-input-placeholder {
+              color: rgba(65,76,99,0.5);
+            }
+            &:-moz-placeholder {
+              color: rgba(65,76,99,0.5);
+            }
+            &::-moz-placeholder {
+              color: rgba(65,76,99,0.5);
+            }
+            &:-ms-input-placeholder {
+              color: rgba(65,76,99,0.5);
+            }
+          }
+        }
+        &:nth-child(2) {
+          position: relative;
+          width: 20%;
+          padding-bottom: 8px;
+          margin-right: 1%;
+          @include tablets() {
+            width: 25%;
+          }
+          &:after {
+            position: absolute;
+            right: 20px;
+            top: 5px;
+            content: '%';
+            color: #9da9c3;
+            font-size: 16px;
+            @include tablets() {
+              top: 6px;
+            }
+          }
+        }
+        &:nth-child(3) {
+          width: 15%;
+        }
+        .card__input-active {
+          padding: 9px 20px;
+          &.card__input-percentage {
+            border-bottom: 1px solid rgba(65,76,99,1);
+          }
+        }
+      }
+    }
+  }
+}
+
+/* --------------------------------------------------     WORK     ---------------------------------------------- */
+
+.work {
+  position: relative;
+  width: calc( (100% - 54px) / 3);
+  padding-bottom: 100px;
+  margin: 0 27px 27px 0;
+  @include tablets() {
+    width: calc( (100% - 27px) / 2);
+  }
+  @include phones() {
+    width: 100%;
+    margin: 0 0 27px 0;
+  }
+  &:nth-child(3n) {
+    margin: 0 0 27px 0;
+    @include tablets() {
+      margin: 0 27px 27px 0;
+    }
+    @include phones() {
+      margin: 0 0 27px 0;
+    }
+  }
+  &:nth-child(2n) {
+    @include tablets() {
+      margin: 0 0 27px 0;
+    }
+  }
+  .work__header {
+    position: relative;
+    .work__photo {
+      .work__img {
+        width: 100%;
+      }
+    }
+    .work__tags {
+      position: absolute;
+      left: 0;
+      bottom: 10px;
+      width: 100%;
+    }
+  }
+  .work__caption {
+    font-size: 18px;
+    font-weight: 600;
+    padding: 15px 7%;
+  }
+  .work__desc {
+    padding: 0 7% 15px;
+  }
+  .work__link {
+    padding-left: 7%;
+    .work__link-site {
+      font-weight: 600;
+      text-decoration: none;
+    }
+  }
+}
+
+.work__tags-list {
+  margin: 0 5px 4px 0;
+  text-align: right;
+  .work__tags-item {
+    display: inline-block;
+    margin: 0 4px;
+    padding: 5px 12px;
+    background-color: #fff;
+    border-radius: 15px;
+    font-size: 14px;
+  }
+}
+
+/* --------------------------------------------------     REVIEWS     ---------------------------------------------- */
+
+.reviews {
+  position: relative;
+  width: calc( (100% - 54px) / 3);
+  padding: 35px 35px 100px;
+  margin: 0 27px 27px 0;
+  @include tablets() {
+    width: calc( (100% - 27px) / 2);
+  }
+  @include phones() {
+    width: 100%;
+    margin: 0 0 27px 0 !important;
+  }
+  &:nth-child(3n) {
+    margin: 0 0 27px 0;
+    @include tablets() {
+      margin: 0 27px 27px 0;
+    }
+  }
+  &:nth-child(2n) {
+    @include tablets() {
+      margin: 0 0 27px 0;
+    }
+  }
+  .reviews__header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    .reviews__photo {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 15px;
+      .reviews__img {
+        width: 100%;
+      }
+    }
+    .reviews__author {
+      font-weight: 600;
+      .reviews__author-title {
+        display: block;
+        margin-top: 5px;
+        font-weight: 300;
+        color: #b0b3ba;
+      }
+    }
+  }
+  .reviews__desc {
+    line-height: 1.8;
+  }
+}
+
+/* --------------------------------------------------      EDIT - FORM     ---------------------------------------------- */
+
+.edit-form {
+  .edit-form__input-fields {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    & > div {
+      flex-basis: 100%;
+    }
+    &.edit-form__input-reviews > div {
+      flex-basis: 48%;
+      @include tablets() {
+        flex-basis: 100%;
+        padding-right: 20%;
+      }
+      @include phones() {
+        padding-right: 0;
+      }
+    }
+    .work__tags-list {
+      margin: -12px 0 35px 0;
+      text-align: left;
+      .work__tags-item {
+        padding: 5px 32px 5px 12px;
+        background-color: #e9e9e9;
+        background-image: svg-load('remove.svg', fill=$text-color, width=11, height=11);
+        background-repeat: no-repeat;
+        background-position: right 10px top 9px;
+      }
+    }
+  }
+  .edit-form__btns {
+    text-align: right;
+    .btn {
+      margin-left: 30px;
+    }
+  }
+}
+
+.edit-form__group-label {
+  display: block;
+  color: #c6c8d0;
+  padding: 0 0 20px 0;
+}
+.edit-form__group-control {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid $text-color;
+  outline: none;
+  margin-bottom: 38px;
+  padding: 0 0 7px 0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 2;
+  &:focus {
+    border-bottom: 1px solid $decor-color-1;
+  }
+  &::-webkit-input-placeholder {
+    font-family: $font_default;
+    //-font-size: 16px;
+    font-weight: 600;
+    color: rgba(65,76,99,1);
+  }
+  &:-moz-placeholder {
+    font-family: $font_default;
+    //-font-size: 16px;
+    font-weight: 600;
+    color: rgba(65,76,99,1);
+  }
+  &::-moz-placeholder {
+    font-family: $font_default;
+    //-font-size: 16px;
+    font-weight: 600;
+    color: rgba(65,76,99,1);
+  }
+  &:-ms-input-placeholder {
+    font-family: $font_default;
+    //-font-size: 16px;
+    font-weight: 600;
+    color: rgba(65,76,99,1);
+  }
+}
+
+.contact__group-control_desc {
+  resize: vertical;
+  padding: 20px;
+  border: 1px solid #babcc5;
+}
+
+.form-link {
+  font-weight: 600;
+  color: #373bd0;
+  text-decoration: none;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.text-secondary {
+  color: #9da9c3 !important;
+  font-weight: 300 !important;
+}
+
+.bottom-line {
+  position: relative;
+  &:before {
+    position: absolute;
+    content: '';
+    left: -10px;
+    bottom: 0;
+    width: calc(100% + 20px);
+    height: 1px;
+    background-color: #dedee0;
+    @include phones() {
+      width: 118%;
+      left: -9%;
+    }
+  }
+}
+
+/* --------------------------------------------------      I C O N S     ---------------------------------------------- */
+
+.icon {
+  &.tick {
+    fill: green !important;
+  }
+  &.remove {
+    fill: red !important;
+  }
+}
+
+.icon-plus {
+  width: 150px;
+  height: 150px;
+  line-height: 140px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  text-align: center;
+  .icon-plus__rect {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 34px;
+    height: 3px;
+    background-color: #fff;
+    &:before {
+      position: absolute;
+      content: '';
+      left: 1px;
+      top: 0;
+      width: 34px;
+      height: 3px;
+      background-color: #fff;
+      transform: rotate(90deg);
+    }
+  }
+  @include phones() {
+    transform: scale(0.45, 0.45);
+  }
+}
+
+.icon-user {
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  line-height: 190px;
+  border-radius: 50%;
+  background-color: #dde4ee;
+  &:before {
+    position: absolute;
+    content: '';
+    left: calc(50% - 43px);
+    top: calc(50% - 58px);
+    width: 86px;
+    height: 116px;
+    background-image: svg-load('user.svg', fill=#ffffff, width=86, height=116);
+    background-repeat: no-repeat;
+    background-position: left top;
+    @include tablets() {
+      width: 96px;
+      left: calc(50% - 48px);
+      top: calc(50% - 70px);
+    }
+  }
+}
+
+/* --------------------------------------------------  BUTTONS  --------------------------------------------------*/
+.skills__btn {
+  margin: 10px 0 0;
+  width: 16px;
+  height: 16px;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+.pencil-btn {
+  background: svg-load('pencil.svg', fill=#a1a5b1, width=100%, height=100%);
+}
+.trash-btn {
+  background: svg-load('trash.svg', fill=#a1a5b1, width=100%, height=100%);
+}
+.tick-btn {
+  background: svg-load('tick.svg', fill=green, width=100%, height=100%);
+}
+.remove-btn {
+  background: svg-load('cross.svg', fill=red, width=100%, height=100%);
+}
+.skills__btn.tick-btn,
+.skills__btn.remove-btn {
+  display: none;
+}
+.add-btn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(to right, rgba(26,85,225,1) 0%, rgba(55,60,208,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1a55e1', endColorstr='#373cd0', GradientType=1 );
+  &:before {
+    position: absolute;
+    content: '+';
+    left: 11px;
+    top: 2px;
+    font-size: 32px;
+    color: #fff;
+    font-weight: 400;
+    @include phones() {
+      left: 10px;
+      top: 1px;
+    }
+  }
+  &:hover {
+    background: linear-gradient(to right, rgba(55,60,208,1) 0%, rgba(26,85,225,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#373cd0', endColorstr='#1a55e1', GradientType=1 );
+  }
+}
+
+/* --------------------------------------------------  CARD  --------------------------------------------------*/
+
+.card {
+  background-color: #fff;
+  box-shadow: 0px 0px 18px 0px rgba(0,0,0,0.1);
+}
+
+.card-footer {
+  position: absolute;
+  left: 6%;
+  bottom: 30px;
+  width: 88%;
+  .card-footer__btn {
+    float: left;
+    width: 97px;
+    height: 23px;
+    font-size: 16px;
+    color: #9da9c3;
+    .icon {
+      width: 17px;
+      height: 17px;
+      vertical-align: middle;
+      margin-left: 7px;
+      &.pencil {
+        fill: blue;
+      }
+    }
+    & + .card-footer__btn {
+      float: right;
+    }
+    &:hover {
+      color: blue;
+    }
+    & + .card-footer__btn:hover {
+      color: red;
+    }
+  }
+}
+
+.card__input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(65,76,99,0);
+  outline: none;
+  padding: 9px 0;
+  color: $text-color;
+  font-size: 1rem;
+  font-weight: 400;
+  pointer-events: none;
+  &:focus {
+    pointer-events: auto;
+    border-bottom: 1px solid $text-color;
+  }
+  &::-webkit-input-placeholder {
+    font-size: 1rem;
+    color: rgba(65,76,99,1);
+  }
+  &:-moz-placeholder {
+    font-size: 1rem;
+    color: rgba(65,76,99,1);
+  }
+  &::-moz-placeholder {
+    font-size: 1rem;
+    color: rgba(65,76,99,1);
+  }
+  &:-ms-input-placeholder {
+    font-size: 1rem;
+    color: rgba(65,76,99,1);
+  }
+}
+.card__input-percentage {
+  padding: 9px 20px;
+}
+.card__input-add {
+  width: 60%;
+  color: #9da9c3;
+  font-weight: 600;
+  &::-webkit-input-placeholder {
+    color: rgba(65,76,99,0.5);
+  }
+  &:-moz-placeholder {
+    color: rgba(65,76,99,0.5);
+  }
+  &::-moz-placeholder {
+    color: rgba(65,76,99,0.5);
+  }
+  &:-ms-input-placeholder {
+    color: rgba(65,76,99,0.5);
+  }
+}
+.card__input-active {
+  pointer-events: auto;
+  border-bottom: 1px solid rgba(65,76,99,1);
+}
+.card__input-percentage.card__input-active {
+  border-bottom: 1px solid rgba(55,60,208,1);
+}
+
+/* --------------------------------------------------      CARD - EDIT     ---------------------------------------------- */
+
+.card-edit {
+  padding: 35px;
+  margin-bottom: 27px;
+  @include phones() {
+    width: 118%;
+    margin-left: -9%;
+  }
+  .card-edit__headline {
+    padding-bottom: 30px;
+    margin-bottom: 35px;
+    font-weight: 600;
+  }
+  .card-edit__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    @include tablets() {
+      flex-wrap: wrap;
+    }
+    &.card-edit__reviews {
+      justify-content: start;
+    }
+    .card-edit__img-load {
+      width: 49%;
+      padding: 70px 0 90px;
+      text-align: center;
+      &.card-edit__work {
+        background-color: #c0ccde;
+        border: 1px dashed #666;
+        border-style: solid;
+        border-width: 9px 9px 9px 9px;
+        border-image: url(../images/content/dashed-border.png) 9 9 9 9 repeat;
+        @include tablets() {
+          width: 80%;
+          margin: 0 10% 50px;
+        }
+        @include phones() {
+          width: 100%;
+          margin: 0 0 50px;
+        }
+      }
+      &.card-edit__review {
+        width: 200px;
+        margin-right: 35px;
+        padding: 20px 0 0;
+        @include phones() {
+          width: 100%;
+          margin: 0 0 50px 0;
+        }
+      }
+      p {
+        padding: 0 25% 20px;
+      }
+      .card-edit__link {
+        display: block;
+        margin-top: 25px;
+        color: #373bd0;
+        text-decoration: none;
+      }
+    }
+    .card-edit__content {
+      width: 49%;
+      &.card-edit__work-content {
+        @include tablets() {
+          width: 100%;
+          padding: 0 10%;
+        }
+        @include phones() {
+          padding: 0;
+        }
+      }
+      &.card-edit__review-content {
+        width: 60%;
+        @include tablets() {
+          width: calc(100% - 235px);
+        }
+        @include phones() {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+/* --------------------------------------------------      CARD - ADD     ---------------------------------------------- */
+
+.card-add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  background: linear-gradient(to right, rgba(26,85,225,1) 0%, rgba(55,60,208,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1a55e1', endColorstr='#373cd0', GradientType=1 );
+  @include phones() {
+    justify-content: flex-start;
+  }
+  .card-add__link {
+    align-self: center;
+    margin: auto;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    @include phones() {
+      margin: 0;
+    }
+    .card-add__text {
+      margin-top: 30px;
+      padding: 0 10%;
+      font-weight: 600;
+      @include phones() {
+        display: inline-block;
+        margin: 0 0 0 -20px;
+        padding: 0;
+      }
+    }
+    .icon-plus {
+      @include phones() {
+        display: inline-block;
+      }
+    }
+    &:hover {
+      opacity: 0.75;
+      .icon-plus {
+        background-color: rgba(255,255,255,0.1);
+      }
+    }
+  }
+}
+
+.editable {
+  position: relative;
+  &:before {
+    position: absolute;
+    z-index: 10;
+    content: '';
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.5);
+  }
+}

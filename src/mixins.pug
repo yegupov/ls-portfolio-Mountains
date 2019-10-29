@@ -22,4 +22,4 @@ mixin image(path, className, alt)
   img(src=require(`images/${path}`) class=className alt=alt)
     
 mixin image-adaptive(path1, path2, className, alt)
-  img(src=require(`images/${path1}`) class=className alt=alt srcset=require(`images/${path2}`) + ' 1280w, ' + require(`images/${path1}`) + ' 1920w' sizes='(max-width: 1280px) 1280px, 1920px')
+  img(src=require(`images/${path1}`) class=className alt=alt srcset=require(`images/content/service-img.jpg`) + ' 1w, ' + require(`images/${path2}`) + ' 1280w, ' + require(`images/${path1}`) + ' 1920w' sizes='(max-width: 767px) 1px, (max-width: 1280px) 1280px, 1920px')

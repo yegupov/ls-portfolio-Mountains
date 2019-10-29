@@ -1,59 +1,33 @@
 .skills {
   position: relative;
   min-height: 857px;
-  margin-top: -100px;
-  padding: 240px 0 150px;
+  //-margin-top: -100px;
+  padding: 120px 0 150px;
   background: url('../images/content/backpack.jpg') no-repeat;
   background-position: left calc(50% - 550px) top 350px;
   background-size: 712px 627px;
   @include desktop() {
-    margin-top: -85px;
+    //-margin-top: -85px;
   }
   @include 992px() {
     background-position: left calc(50% - 600px) top 350px;
   }
   @include tablets() {
-    margin: -69px 0 140px;
-    padding: 240px 0 400px;
+    margin: 0 0 140px;
+    //-margin: -69px 0 140px;
+    padding: 120px 0 400px;
     background-position: center bottom;
     background-size: 454px 400px;
   }
   @include 600px() {
-    margin-top: -68px;
+    //-margin-top: -68px;
   }
   @include phones() {
-    margin-top: -45px;
-    padding: 180px 0 400px;
+    //-margin-top: -45px;
+    padding: 120px 0 400px;
   }
   @include 375px() {
-    margin-top: -28px;
-  }
-  &::before, &::after {
-    position: absolute;
-    z-index: 20;
-    content: '';
-    top: 0;
-    width: 0;
-    height: 0;
-    border-bottom: 100px solid #fff;
-    border-right: 50vw solid transparent;
-    @include desktop() {
-      border-bottom: 80px solid #fff;
-    }
-    @include tablets() {
-      border-bottom: 60px solid #fff;
-    }
-    @include phones() {
-      border-bottom: 40px solid #fff;
-    }
-    @include 375px() {
-      border-bottom: 25px solid #fff;
-    }
-  }
-  &::after {
-    right: 0;
-    border-right: none;
-    border-left: 50vw solid transparent;
+    //-margin-top: -28px;
   }
   .skills__title {
     margin-bottom: 45px;

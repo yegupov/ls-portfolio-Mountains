@@ -1,9 +1,9 @@
 .wrapper-top {
   position: relative;
   width: 100%;
-  height: 1700px;
+  height: 1850px;
   @include desktopHd() {
-    height: 1550px;
+    height: 1800px;
   }
   @include 1440px() {
     height: 1508px;
@@ -15,13 +15,13 @@
     height: 1520px;
   }
   @include desktop() {
-    height: 1500px;
+    height: 1550px;
   }
   @media only screen and (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
     height: 2200px;
   }
-  @include 992px() {
-    height: 1340px;
+  @include 800px() {
+    height: 1600px;
   }
   @include tablets() {
     height: 1880px;
@@ -31,6 +31,33 @@
     background: url('../images/content/bg-wrapper-top.jpg') no-repeat;
     background-position: center top;
     background-size: cover;
+  }
+  &::before, &::after {
+    position: absolute;
+    z-index: 20;
+    content: '';
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 100px solid #fff;
+    border-right: 50vw solid transparent;
+    @include desktop() {
+      border-bottom: 80px solid #fff;
+    }
+    @include tablets() {
+      border-bottom: 60px solid #fff;
+    }
+    @include phones() {
+      border-bottom: 40px solid #fff;
+    }
+    @include 375px() {
+      border-bottom: 25px solid #fff;
+    }
+  }
+  &::after {
+    right: 0;
+    border-right: none;
+    border-left: 50vw solid transparent;
   }
 }
 
@@ -119,7 +146,7 @@
 }
 
 .wrapper-top__bg:nth-of-type(5) {  /* Man */
-  padding-top: 37.3%;
+  padding-top: 44%;
   @include 1280px() {
     padding-top: 55%;
   }
@@ -130,7 +157,7 @@
     padding-top: 55%;
   }
   @media only screen and (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
-    padding-top: 95%;
+    padding-top: 120%;
   }
   @include 992px() {
     padding-top: 65%;
@@ -147,7 +174,7 @@
 }
 
 .wrapper-top__bg:nth-of-type(6) {
-  padding-top: 39%;
+  padding-top: 42%;
   @include 1280px() {
     padding-top: 58%;
   }
@@ -158,7 +185,7 @@
     padding-top: 58%;
   }
   @media only screen and (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
-    padding-top: 83%;
+    padding-top: 117%;
   }
   @include tablets() {
     padding-top: 92%;
@@ -192,12 +219,16 @@
       bottom: 100px;
     }
     @media only screen and (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
-      transform: scale(2.3, 2.3);
-      bottom: 350px;
+      transform: scale(2.5, 2.5);
+      bottom: 370px;
+    }
+    @include 1024px() {
+      transform: scale(1.6, 1.6);
+      bottom: 150px;
     }
     @include 992px() {
-      transform: scale(1.7, 1.7);
-      bottom: 140px;
+      transform: scale(1.8, 1.8);
+      bottom: 180px;
     }
     @include tablets() {
       transform: scale(2.5, 2.5);
