@@ -37,7 +37,15 @@ new Vue({
     }
   },
   methods: {
-    async sendMessage() {
+    submit: function () {
+      this.$validate()
+        .then(function (success) {
+          if (success) {
+            alert('Валидация пройдена!');
+          }
+        });
+    }
+    /* async sendMessage() {
       if (await this.$validate()) {
         console.log('Валидация пройдена, отправка сообщения...')
 
@@ -72,7 +80,7 @@ new Vue({
       xhr.send(formData)
 
       return xhr
-    }
+    } */
   },
   updated() {
    console.log(this.validation)

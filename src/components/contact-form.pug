@@ -1,5 +1,5 @@
 script(type="text/x-template")#contact-form-template
-  form(@submit.prevent="sendMessage").contact__form
+  form(@submit.prevent="submit").contact__form
     .contact__input-fields
       .contact__group(:class="{'error' : validation.firstError('user.name')}")
         label.contact__group-label(for='user') Введите ваше имя
