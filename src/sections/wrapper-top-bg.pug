@@ -1,0 +1,7 @@
+.wrapper-top__bg
+  +image-adaptive('content/mountain-1.jpg', 'content/mountain-1-1280w.jpg', 'wrapper-top__img', 'Горы фон 1')
+
+- var mountain = {'mountain-2':'Горы фон 2', 'baloon':'Горы фон 3', 'mountain-3':'Горы фон 4', 'mountain-4':'Горы фон 5', 'mountain-5':'Горы фон 6', 'mountain-6':'Горы фон 7'}
+each val, key in mountain
+  .wrapper-top__bg
+    +image-adaptive('content/' + key + '.png', 'content/' + key + '-1280w.png', 'wrapper-top__img', val)

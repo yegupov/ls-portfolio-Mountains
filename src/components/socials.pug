@@ -1,0 +1,5 @@
+ul.socials
+  each val, key in {'insta':'Instagram','vk':'VK','github':'GitHub'}
+    li.socials__item
+      a.socials__link(href='#' title=val target='_blank')
+        +icon(key, 'social-icon ' + key)

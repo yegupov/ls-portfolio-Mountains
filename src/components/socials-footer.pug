@@ -1,0 +1,7 @@
+.footer__social-btns
+  - var icons = ['insta', 'vk', 'github']
+  ul.footer__socials
+    each item in icons
+      li.footer__socials-item
+        a.footer__socials-link(href='#' target='_blank')
+          +icon(`${item}`, 'social-icon ' + `${item}`)

@@ -1,10 +1,16 @@
 .contact {
   padding: 150px 0;
   font-weight: bold;
-  .contact-title {
+  .contact__title {
     margin-bottom: 40px;
   }
   .contact__form {
     width: 59.52%;
+    @include desktop() {
+      width: 80%;
+    }
+    @include tablets() {
+      width: 100%;
+    }
   }
 }

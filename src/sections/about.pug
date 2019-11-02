@@ -1,14 +1,20 @@
-section.about#about
+section#about.about
   .container    
-    .about-info
-      .about-info-item
-        +image('content/my-pic.jpg', 'about-info-img', 'Веб-разработчик Геннадий Егупов')
-      .about-info-item.welcome
-        p Привет, меня зовут
-        h2.section-title.about-title Геннадий Егупов
-        p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
-      .about-info-item
-        .about-info-text Проживаю:<br/>Возраст:<br/>Родился:
-        .about-info-text Москва<br/>46 лет<br/>20 октября 1972        
-      .about-info-item.note Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+    .about__info
+      .about__info-item
+        +image('content/my-pic.jpg', 'about__info-img', 'Веб-разработчик Геннадий Егупов')
+      .about__info-item.about__info-item_welcome
+        p.basic-text Привет, меня зовут
+        h2.section-title.about__title Геннадий Егупов
+        p.basic-text Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+      .about__info-item
+        .about__info-text
+          span.about__info-text-row Проживаю:
+          span.about__info-text-row Возраст:
+          span.about__info-text-row Родился:
+        .about__info-text
+          span.about__info-text-row Москва
+          span.about__info-text-row 46 лет
+          span.about__info-text-row 20 октября 1972        
+      .about__info-item.about__info-item_note Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
           

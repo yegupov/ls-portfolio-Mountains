@@ -1,15 +1,20 @@
-form#contact_form.contact__form(method='post')
-  .inputs-block
-    .form-group
-      label.form-group-label(for='user') Введите ваше имя
-      input.form-control.user#user(type='text' name='user' placeholder='Ковальчук Дмитрий')
-      span.form-group__error
-    .form-group
-      label.form-group-label(for='email') Введите ваш Email
-      input.form-control.email#email(type='email' name='email' placeholder='loftschool@study.com')
-      span.form-group__error
-  .form-group
-    label.form-group-label(for='message') Сообщение к письму
-    textarea.form-control.message#message(name='message' rows='2' placeholder='Требуется ваша помощь в создании сайта. Интересуют сроки и цена вопроса')
-    span.form-group__error
-  input.btn.btn-primary#contact_form_submit(type='submit' value='Отправить')
+script(type="text/x-template")#contact-form-template
+  form(@submit.prevent="submit").contact__form
+    .contact__input-fields
+      .contact__group(:class="{'error' : validation.firstError('user.name')}")
+        label.contact__group-label(for='user') Введите ваше имя
+        input.contact__group-control.contact__group-control_user#user(type='text' name='user' placeholder='Ковальчук Дмитрий' v-model="user.name")
+        .contact__group-error
+          error-tooltip( :errorText="validation.firstError('user.name')" )
+      .contact__group(:class="{'error' : validation.firstError('user.email')}")
+        label.contact__group-label(for='email') Введите ваш Email
+        input.contact__group-control.contact__group-control_email#email(type='email' name='email' placeholder='loftschool@study.com' v-model="user.email")
+        .contact__group-error
+          error-tooltip( :errorText="validation.firstError('user.email')" )
+    .contact__group(:class="{'error' : validation.firstError('user.message')}")
+      label.contact__group-label(for='message') Сообщение к письму
+      textarea.contact__group-control.contact__group-control_message#message(name='message' rows='2' v-model="user.message" placeholder='Требуется ваша помощь в создании сайта. Интересуют сроки и цена вопроса')
+      .contact__group-error
+        error-tooltip( :errorText="validation.firstError('user.message')" )
+    .contact__btn
+      input.btn.btn-primary#contact_form_submit(type='submit' value='Отправить')

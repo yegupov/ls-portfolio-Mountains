@@ -1,19 +1,16 @@
-.reviews-slider
-  .reviews-slide
-    .reviews-slide-content Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-    .reviews-slide-footer
-      +image('content/review-1.jpg', 'reviews-slide-img', 'Ковальчук Дмитрий фото')
-      .reviews-slide-name
-        h6 Ковальчук Дмитрий
-        p Основатель Loftschool
-  .reviews-slide
-    .reviews-slide-content Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
-    .reviews-slide-footer
-      +image('content/review-2.jpg', 'reviews-slide-img', 'Владимир Сабанцев фото')
-      .reviews-slide-name
-        h6 Владимир Сабанцев
-        p Преподаватель
-  button.arrow-prev
-    +icon('arrow-right', 'icon arrow-left')
-  button.arrow-next
-    +icon('arrow-right', 'icon')
+script(type="text/x-template")#reviews-container
+  .reviews__slider(v-if="reviews.length")
+    flickity(ref="flickity" :options="flickityOptions" @init="onInit")
+      li(v-for="review in reviews" :key="review.id").reviews__slider-item
+        slide(
+          :review="review"
+          )    
+
+script(type="text/x-template")#reviews-slide  
+  .reviews__slide
+    .reviews__slide-content {{review.text}}
+    .reviews__slide-footer
+      img(:src="review.avatar" :alt="review.autor").reviews__slide-img
+      .reviews__slide-name
+        h6.reviews__slide-caption {{review.autor}}
+        p.basic-text {{review.position}}

@@ -1,105 +1,144 @@
 .footer {
   padding: 95px 0 90px;
-  background-color: #252830;
-  color: #3b3e45;
+  background-color: #1f232e;
+  color: #63666d;
   font-weight: 400;
+  @include 800px() {
+    padding: 70px 0;
+  }
   .footer__content {
     display: -webkit-flex;
     display: -ms-flex;
     display: flex;
     justify-content: space-between;
-    .footer__copy {
-      flex-basis: 15%;
-      align-self: flex-start;
-      font-size: 48px;
-      font-weight: 600;
-      line-height: 0.9;
+    @include phones() {
+      flex-wrap: wrap;
     }
-    .footer__site-name {
-      flex-basis: 19.12%;
-      line-height: 1.9;
-      .footer__name {
-        display: block;
-        height: 70px;
-        text-transform: uppercase;
-        color: #fff;
-        font-weight: bold;
-        line-height: 1.7;
-        padding-right: 50%;
-      }
+  }
+}
+
+.footer__copy-name {
+  flex-basis: 34.12%;
+  align-self: flex-start;
+  @include desktop() {
+    flex-basis: 25%;
+  }
+  @include phones() {
+    flex-basis: 100%;
+  }
+}
+
+.footer__copy {
+  display: inline-block;
+  vertical-align: top;
+  width: 50%;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 0.9;
+  &::first-letter {
+    @include desktop() {
+      margin-left: -3px;
     }
-    .footer__right {
-      flex-basis: 65.88%;
-      .footer__menu {
-        height: 70px;
-        .footer-nav__list {
-          .footer-nav__item {
-            display: inline-block;
-            margin-right: 60px;
-            &:last-child {
-              margin-right: 0;
-            }
-            .footer-nav__link {
-              color: #fff;
-              &:hover {
-                color: $links-color;
-              }
-            }
-          }
-        }
-      }
-      .footer__social {
-        display: inline-block;
-        vertical-align: top;
-        width: 51.58%;
-        padding-right: 16%;
-        line-height: 1.9;
-        .footer-social-btns {
-          margin-top: 15px;
-          .footer-socials {
-            .footer-socials__item {
-              display: inline-block;
-              margin-right: 20px;
-              width: 50px;
-              height: 50px;
-              line-height: 43px;
-              border-radius: 50%;
-              border: 1px solid #3b3e45;
-              text-align: center;
-              transition: all 0.2s ease;
-              &:last-child {
-                margin-right: 0;
-              }
-              .footer-socials__link {
-                display: inline-block;
-                .social-icon {
-                  fill: #1a1c22;
-                  transform: scale(0.88, 0.88);
-                }
-              }
-              &:hover {
-                cursor: pointer;
-                border: 1px solid $links-color;
-                .social-icon {
-                  fill: $links-color;
-                }
-              }
-            }
-          }
-        }
-      }
-      .footer__quote {
-        display: inline-block;
-        vertical-align: top;
-        width: 48.4%;
-        line-height: 1.9;
-        .footer__quote-author {
-          display: block;
-          font-size: 16px;
-          font-style: italic;
-          color: #fff;
-        }
-      }
+  }
+  @include desktop() {
+    display: block;
+    width: 70%;
+  }
+  @include 800px() {
+    width: 90%;
+  }
+  @include 600px() {
+    font-size: 42px;
+  }
+  @include phones() {
+    font-size: 48px;
+  }
+}
+
+.footer__site-name {
+  display: inline-block;
+  vertical-align: top;
+  width: 50%;
+  line-height: 1.9;
+  @include desktop() {
+    display: block;
+    width: 70%;
+    margin-top: 25px;
+  }
+  @include 800px() {
+    width: 90%;
+  }
+  .footer__name {
+    display: block;
+    height: 70px;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: bold;
+    line-height: 1.7;
+    padding-right: 50%;
+    @include phones() {
+      height: auto;
+      margin-bottom: 15px;
+      padding-right: 0;
+    }
+  }
+  .footer__name-text {
+    display: inline-block;
+    padding-right: 30%;
+    @include phones() {
+      padding-right: 0;
+    }
+  }
+}
+
+.footer__right {
+  flex-basis: 65.88%;
+  @include desktop() {
+    flex-basis: 75%;
+  }
+  @include phones() {
+    flex-basis: 100%;
+  }
+  .footer__menu {
+    height: 70px;
+    @include 800px() {
+      height: auto;
+      margin-bottom: 35px;
+    }
+    @include phones() {
+      margin: 50px 0 35px;
+    }
+  }
+  .footer__social {
+    display: inline-block;
+    vertical-align: top;
+    width: 51.58%;
+    padding-right: 16%;
+    line-height: 1.9;
+    @include 800px() {
+      display: block;
+      width: 100%;
+      margin-bottom: 45px;
+    }
+    @include phones() {
+      padding-right: 0;
+    }
+  }
+  .footer__quote {
+    display: inline-block;
+    vertical-align: top;
+    width: 48.4%;
+    line-height: 1.9;
+    @include 800px() {
+      display: block;
+      width: 100%;
+    }
+    .footer__quote-author {
+      display: block;
+      margin-top: 15px;
+      font-size: 16px;
+      font-style: italic;
+      color: #fff;
     }
   }
 }

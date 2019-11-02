@@ -4,4 +4,19 @@
   background: url('../images/content/bg-wrapper-bottom.jpg') no-repeat;
   background-position: center top;
   background-size: 2560px 1440px;
+  @include desktop() {
+    margin-top: -75px;
+  }
+  @include 800px() {
+    background-size: 2400px 1350px;
+  }
+  @include tablets() {
+    margin-top: -57px;
+  }
+  @include phones {
+    margin-top: -34px;
+  }
+  @include 375px() {
+    margin-top: -22px;
+  }
 }

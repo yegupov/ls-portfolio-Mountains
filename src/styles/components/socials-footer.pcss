@@ -1,0 +1,33 @@
+.footer__social-btns {
+  margin-top: 15px;
+  .footer__socials {
+    .footer__socials-item {
+      display: inline-block;
+      margin-right: 20px;
+      width: 50px;
+      height: 50px;
+      line-height: 46px;
+      border-radius: 50%;
+      border: 1px solid #63666d;
+      text-align: center;
+      transition: all 0.2s ease;
+      &:last-child {
+        margin-right: 0;
+      }
+      .footer__socials-link {
+        display: inline-block;
+        .social-icon {
+          fill: #63666d;
+          transform: scale(0.88, 0.88);
+        }
+      }
+      &:hover {
+        cursor: pointer;
+        border: 1px solid $links-color;
+        .social-icon {
+          fill: $links-color;
+        }
+      }
+    }
+  }
+}

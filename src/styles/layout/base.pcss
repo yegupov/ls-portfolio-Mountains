@@ -1,4 +1,5 @@
 html {
+  scroll-behavior: smooth;
   @include desktop {
     font-size: 15px;
   }
@@ -8,6 +9,7 @@ html {
 }
 body,
 html {
+  margin: 0;
   height: 100%;
 }
 
@@ -39,6 +41,7 @@ body {
 
 section {
   width: 100%;
+  min-height: 400px;
   overflow-x: hidden;
 }
 
@@ -76,6 +79,9 @@ h6 {
   font-size: 36px;
   font-weight: bold;
   color: $text-color;
+  @include phones() {
+    font-size: 24px;
+  }
 }
 
 p {
@@ -83,7 +89,17 @@ p {
   padding: 0;
 }
 
-button[type="button"] {
+.basic-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: $text-color-lighter;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
   cursor: pointer;
   background-color: transparent;
 }
@@ -96,10 +112,13 @@ button[type="button"] {
   padding: 30px 120px;
   background: linear-gradient(to right, $decor-color-1 1%,$decor-color-2 100%);
   border-radius: 5px;
+  transition: all 0.2s ease;
   border: none;
   outline: none;
-  transition: all 0.2s ease;
   cursor: pointer;
+  @include 375px() {
+    padding: 30px 100px;
+  }
   &:hover {
     background: linear-gradient(to right, $decor-color-1 55%,$decor-color-2 100%);
   }
@@ -108,6 +127,18 @@ button[type="button"] {
 .btn-primary {
   border-radius: 37px 5px 37px 5px;
 }
+
+.btn-secondary {
+  font-size: 15px;
+  font-weight: 600;
+  padding: 17px 30px;
+  background: linear-gradient(to right, rgba(26,85,225,1) 1%, rgba(55,60,208,1) 100%);
+  border-radius: 25px;
+  &:hover {
+    background: linear-gradient(to right, rgba(55,60,208,1) 55%, rgba(26,85,225,1) 100%);
+  }
+}
+
 
 a {
   color: inherit;
@@ -150,3 +181,5 @@ img {
     height: 23px;
   }
 }
+
+.display-none {display: none !important;}

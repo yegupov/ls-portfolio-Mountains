@@ -1,26 +1,63 @@
-.works-slider
-  .works-slide
-    .works-slide__preview          
-      +image('content/work-1.jpg', 'works-slide-img', 'Фото работы №1')      
-      ul.works-slide__previews
-        each val, key in {'work-2':'Фото работы №2','work-3':'Фото работы №3','work-4':'Фото работы №4','work-1':'Фото работы №1'}
-          li(class='works-slide__previews-item' + ( (key === 'work-1') ? ' active' : '') )
-            a.works-slide__previews-link(href='#')
-              +image('content/' + key +'.jpg', 'works-list-item-img', val)
-      .works-slide__preview-list-shadow
-      .works-slide__nav-btns
-        button.arrow-prev
-          +icon('arrow-right', 'icon arrow-down')
-        button.arrow-next
-          +icon('arrow-right', 'icon arrow-top')
-    .works-slide__desc
-      ul.works-slide__tags
-        li.works-slide__tags-item HTML
-        li.works-slide__tags-item CSS
-        li.works-slide__tags-item Javascript
-      h4 Сайт школы  образования
-      p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-      a.view(href='#')
-        +icon('link', 'icon')
-        | Посмотреть сайт
-  .works-slider__slide-number 4
+script(type="text/x-template")#slider-container
+  //-pre {{works}}
+  .works__slider
+    .works__slide
+      display(
+        :works="works"
+        :currentWork="currentWork"
+        :currentIndex="currentIndex"
+        @slide="handleSlide"
+        @selectslide="setSlide"
+      )
+      info(
+        :currentWork="currentWork"
+      )
+    .works__slide-number {{currentIndex + 1}}
+
+script(type="text/x-template")#slider-display
+  .works__slide-preview
+    img(:src="currentWork.photo" alt="Фото работы №1").works__slide-preview-img
+    thumbs(
+      :works="reversedWorks"
+      :currentWork="currentWork"
+      @selectslide="work => $emit('selectslide', work)"
+    )
+    .works__previews-shadow
+    btns(
+      @slide="direction => $emit('slide', direction)"
+    )    
+
+script(type="text/x-template")#slider-btns
+  .works__nav-btns
+    button.works__nav-prev(@click="$emit('slide', 'prev')")
+      svg.icon.arrow-down(viewBox="0 0 306 306" preserveAspectRatio="none")
+        use(xlink:href="./sprite.svg#arrow-right")
+    button.works__nav-next(@click="$emit('slide', 'next')")
+      svg.icon.arrow-top(viewBox="0 0 306 306" preserveAspectRatio="none")
+        use(xlink:href="./sprite.svg#arrow-right")
+
+script(type="text/x-template")#slider-thumbs
+  ul.works__previews
+    li.works__previews-item(
+      v-for="work in works" :key="work.id"
+      :class="{active: currentWork.id === work.id }"
+    )
+      a.works__previews-link(href='#' @click.prevent="$emit('selectslide', work.id)")
+        img(:src="work.photo" alt="").works__previews-img
+
+script(type="text/x-template")#slider-info
+  .works__slide-desc
+    tags(
+      :tagsArray="tagsArray"
+    )
+    h4.works__slide-caption {{currentWork.title}}
+    p.basic-text {{currentWork.desc}}
+    a.works__view-link(:href="currentWork.link")
+      svg.icon(viewBox="0 0 512.092 512.092" preserveAspectRatio="none")
+        use(xlink:href="./sprite.svg#link")
+      | Посмотреть сайт
+
+script(type="text/x-template")#slider-tags
+  ul.works__tags
+    li.works__tags-item(v-for="tag in tagsArray")
+      .tag {{tag}}

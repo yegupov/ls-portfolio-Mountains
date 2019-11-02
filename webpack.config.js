@@ -9,7 +9,11 @@ const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = (env, argv) => {
   const isProductionBuild = argv.mode === "production";
+<<<<<<< HEAD
+  const publicPath = 'https://yegupov.github.io/ls-portfolio-Mountains/';
+=======
   const publicPath = './';
+>>>>>>> a9744bd7d6ae6ce89c1bcce8c2c6e04f433a4908
 
   const pcss = {
     test: /\.(p|post|)css$/,
@@ -85,8 +89,8 @@ module.exports = (env, argv) => {
 
   const config = {
     entry: {
-      main: "./src/main.js",
-      admin: "./src/admin/main.js"
+      main: ['@babel/polyfill', './src/main.js'],
+      admin: ['@babel/polyfill', './src/admin/main.js']
     },
     output: {
       path: path.resolve(__dirname, "./dist"),
