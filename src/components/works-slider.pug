@@ -1,8 +1,8 @@
 script(type="text/x-template")#slider-container
   //-pre {{works}}
   .works__slider
-    .works__slide
-      display(
+    .works__slide(v-if="works.length")
+      display(        
         :works="works"
         :currentWork="currentWork"
         :currentIndex="currentIndex"
@@ -16,11 +16,12 @@ script(type="text/x-template")#slider-container
 
 script(type="text/x-template")#slider-display
   .works__slide-preview
-    img(:src="currentWork.photo" alt="Фото работы №1").works__slide-preview-img
+    img(:src="`https://webdev-api.loftschool.com/${currentWork.photo}`" :alt='currentWork.title').works__slide-preview-img
+    //-img(:src="currentWork.photo" alt="Фото работы №1").works__slide-preview-img
     thumbs(
       :works="reversedWorks"
       :currentWork="currentWork"
-      @selectslide="work => $emit('selectslide', work)"
+      @selectslide="$emit('selectslide', work)"
     )
     .works__previews-shadow
     btns(
@@ -43,7 +44,8 @@ script(type="text/x-template")#slider-thumbs
       :class="{active: currentWork.id === work.id }"
     )
       a.works__previews-link(href='#' @click.prevent="$emit('selectslide', work.id)")
-        img(:src="work.photo" alt="").works__previews-img
+        img(:src="`https://webdev-api.loftschool.com/${work.photo}`" :alt='work.title').works__previews-img        
+        //-img(:src="work.photo" alt="").works__previews-img
 
 script(type="text/x-template")#slider-info
   .works__slide-desc
@@ -51,7 +53,7 @@ script(type="text/x-template")#slider-info
       :tagsArray="tagsArray"
     )
     h4.works__slide-caption {{currentWork.title}}
-    p.basic-text {{currentWork.desc}}
+    p.basic-text {{currentWork.description}}
     a.works__view-link(:href="currentWork.link")
       svg.icon(viewBox="0 0 512.092 512.092" preserveAspectRatio="none")
         use(xlink:href="./sprite.svg#link")

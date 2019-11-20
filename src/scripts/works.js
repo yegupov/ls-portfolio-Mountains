@@ -1,4 +1,5 @@
 import Vue from "vue";
+import axios from "axios";
 
 const thumbs = {
   template: "#slider-thumbs",
@@ -37,7 +38,8 @@ const info = {
   props: [ "currentWork" ],
   computed: {
     tagsArray() {
-      return this.currentWork.skills.split(',');
+      //-console.log('Теги currentWork: ', this.currentWork.techs.split(','));
+      return this.currentWork.techs.split(',');
     }
   }
 };
@@ -49,26 +51,32 @@ new Vue({
     display,
     info
   },
+
   data: () => ({
     works: [],
     currentIndex: 0
   }),
+
   computed: {
     currentWork() {
+      console.log('currentWork: ', this.works[this.currentIndex]);
       return this.works[this.currentIndex];
     }
   },
+
   watch: {
     currentIndex(value) {
       this.makeInfiniteLoopForCurIndex(value);
     }
   },
+
   methods: {
     makeInfiniteLoopForCurIndex(value) {
       const worksAmount = this.works.length - 1;
       if (value > worksAmount) this.currentIndex = 0;
       if (value < 0) this.currentIndex = worksAmount;
     },
+
     makeArrWithRequiredImages(data) {
       return data.map(item => {
         const requiredPic = require(`../images/content/${item.photo}`);
@@ -77,6 +85,7 @@ new Vue({
         return item;
       });
     },
+
     handleSlide(direction) {
       switch (direction) {
         case "next":
@@ -87,13 +96,24 @@ new Vue({
           break;
       }
     },
+
     setSlide(work) {
-      console.log(work);
       this.currentIndex = work - 1;
     }
   },
+
   created() {
-    const data = require("../data/works.json");
-    this.works = this.makeArrWithRequiredImages(data);
+    axios
+      .get("https://webdev-api.loftschool.com/works/198")
+      .then(response => {
+        const data = response.data;
+        //-this.works = this.makeArrWithRequiredImages(data);
+        this.works = data;
+        console.log('Дата из стейта: ', data);
+        console.log('Работы из стейта: ', this.works);
+      })
+      .catch(error => console.error(error.message));
+    //-const data = require("../data/works.json");
+    //-this.works = this.makeArrWithRequiredImages(data);
   }
 });

@@ -1,32 +1,32 @@
 script(type="text/x-template")#skills-list
   //-pre {{skills}}
   ul.skills__content
-    li.skills__content-item(v-for="skill in skills" :key="skill.skillsGroup")
+    li.skills__content-item(v-for="skill in skills" :key="skill.category")
       skills-row(
         :skill="skill"
       )
     li.skills__content-item
       svg(width="0" height="0")
         defs
-          linearGradient(id="skill" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1")
+          linearGradient(id="gradient" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1")
             stop(offset="0%" stop-color="#5000ed")
             stop(offset="100%" stop-color="#7c00ea")
 
 script(type="text/x-template")#skills-row
   .skills-row
     //-pre {{skill}}
-    h3.skills__caption {{skill.skillsGroup}}  
+    h3.skills__caption {{skill.category}} 
     ul.skills__list
-      li.skills__item(v-for="(skillPercent, skillName) in skill.skills")
+      li.skills__item(v-for="skill in skill.skills" :key="skill.id")
         skill(
-          :skillName="skillName"
-          :skillPercent="skillPercent"
+          :skillTitle="skill.title"
+          :skillPercent="skill.percent"
         )
 
 script(type="text/x-template")#skill
   .skill
     .skills__item-name
-      span.skills__name-text {{skillName}}
+      span.skills__name-text {{skillTitle}}
     svg.persentage(viewBox='0 0 100 100' preserveAspectRatio='none')
       circle.circle.circle-under(cx='50' cy='50' r='40')
       circle.circle.circle-above(cx='50' cy='50' r='40' ref="color-circle")

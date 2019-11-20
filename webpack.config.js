@@ -9,11 +9,7 @@ const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = (env, argv) => {
   const isProductionBuild = argv.mode === "production";
-<<<<<<< HEAD
   const publicPath = 'https://yegupov.github.io/ls-portfolio-Mountains/';
-=======
-  const publicPath = './';
->>>>>>> a9744bd7d6ae6ce89c1bcce8c2c6e04f433a4908
 
   const pcss = {
     test: /\.(p|post|)css$/,
@@ -104,7 +100,9 @@ module.exports = (env, argv) => {
     resolve: {
       alias: {
         vue$: "vue/dist/vue.esm.js",
-        images: path.resolve(__dirname, "src/images")
+        images: path.resolve(__dirname, "src/images"),
+        components: path.resolve(__dirname, "src/admin/components"),
+        "@": path.resolve(__dirname, "src/admin")
       },
       extensions: ["*", ".js", ".vue", ".json"]
     },

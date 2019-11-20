@@ -10,7 +10,8 @@ script(type="text/x-template")#reviews-slide
   .reviews__slide
     .reviews__slide-content {{review.text}}
     .reviews__slide-footer
-      img(:src="review.avatar" :alt="review.autor").reviews__slide-img
+      img(:src="`https://webdev-api.loftschool.com/${review.photo}`" :alt='review.author').reviews__slide-img
+      //-img(:src="review.photo" :alt="review.author").reviews__slide-img
       .reviews__slide-name
-        h6.reviews__slide-caption {{review.autor}}
-        p.basic-text {{review.position}}
+        h6.reviews__slide-caption {{review.author}}
+        p.basic-text {{review.occ}}

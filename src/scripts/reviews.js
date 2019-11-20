@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Flickity from 'vue-flickity'
+import axios from "axios";
 
 const slide = {
   template: '#reviews-slide',
@@ -46,10 +47,22 @@ new Vue({
       })
     }
   },
+
   created() {
-    const data = require('../data/reviews.json')
-    this.reviews = this.makeArrWithRequiredImages(data)
+    axios
+      .get("https://webdev-api.loftschool.com/reviews/198")
+      .then(response => {
+        const data = response.data;
+        //-this.works = this.makeArrWithRequiredImages(data);
+        this.reviews = data;
+        console.log('Дата из стейта: ', data);
+        console.log('Отзывы из стейта: ', this.reviews);
+      })
+      .catch(error => console.error(error.message));
+    //-const data = require('../data/reviews.json')
+    //-this.reviews = this.makeArrWithRequiredImages(data)
   },
+
   mounted() {
     const items = document.querySelectorAll('.reviews__slider-item');
   }

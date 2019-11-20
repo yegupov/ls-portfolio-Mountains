@@ -1,8 +1,9 @@
 import Vue from "vue";
+import axios from "axios";
 
 const skill = {
   template: "#skill",
-  props: ["skillPercent", "skillName"],
+  props: ["skillPercent", "skillTitle"],
   methods: {
     drawColoredCircle() {
       const circle = this.$refs["color-circle"];
@@ -24,10 +25,20 @@ new Vue({
   el: "#skills-component",
   template: "#skills-list",
   components: { skillsRow },
+
   data: () => ({
     skills: []
   }),
+
   created() {
-    this.skills = require("../data/skills.json");
+    axios
+      .get("https://webdev-api.loftschool.com/categories/198")
+      .then(response => {
+        const data = response.data;
+        this.skills = data;
+        //-console.log('Категории и Навыки из стейта: ', data);
+      })
+      .catch(error => console.error(error.message));
+    //-this.skills = require("../data/skills.json");
   }
 });
