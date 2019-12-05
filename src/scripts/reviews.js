@@ -55,8 +55,8 @@ new Vue({
         const data = response.data;
         //-this.works = this.makeArrWithRequiredImages(data);
         this.reviews = data;
-        console.log('Дата из стейта: ', data);
-        console.log('Отзывы из стейта: ', this.reviews);
+        // console.log('Дата из стейта: ', data);
+        // console.log('Отзывы из стейта: ', this.reviews);
       })
       .catch(error => console.error(error.message));
     //-const data = require('../data/reviews.json')

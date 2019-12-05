@@ -1,3 +1,13 @@
+.hero-section {
+  position: relative;
+  z-index: 50;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .header {
   position: relative;
   z-index: 100;
@@ -39,6 +49,9 @@
   }
   .header__socials {
     flex-basis: 163px;
+    @include tablets() {
+      flex-basis: 170px;
+    }
     @include phones() {
       display: none;
     }

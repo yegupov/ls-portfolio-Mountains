@@ -3,7 +3,18 @@ import axios from "axios";
 
 const thumbs = {
   template: "#slider-thumbs",
-  props: [ "works", "currentWork" ]
+  props: [ "works", "currentWork" ],
+  computed: {
+    previewWorks() {
+      return this.resortWorksToLastActive(this.works, this.currentWork);
+    }
+  },
+  methods: {
+    resortWorksToLastActive(works, active) {
+      return works[works.length - 1] === active ? works : [...works.slice(works.indexOf(active) + 1), ...works.slice(0, works.indexOf(active)), ...[active]];
+    }
+  }
+
 };
 
 const btns = {
@@ -16,13 +27,7 @@ const display = {
     btns,
     thumbs
   },
-  props: [ "works", "currentWork", "currentIndex" ],
-  computed: {
-    reversedWorks() {
-      const works = [...this.works];
-      return works.reverse();
-    }
-  }
+  props: [ "works", "currentWork", "currentIndex"]
 };
 
 const tags = {
@@ -38,7 +43,6 @@ const info = {
   props: [ "currentWork" ],
   computed: {
     tagsArray() {
-      //-console.log('Теги currentWork: ', this.currentWork.techs.split(','));
       return this.currentWork.techs.split(',');
     }
   }
@@ -59,7 +63,6 @@ new Vue({
 
   computed: {
     currentWork() {
-      console.log('currentWork: ', this.works[this.currentIndex]);
       return this.works[this.currentIndex];
     }
   },
@@ -77,15 +80,6 @@ new Vue({
       if (value < 0) this.currentIndex = worksAmount;
     },
 
-    makeArrWithRequiredImages(data) {
-      return data.map(item => {
-        const requiredPic = require(`../images/content/${item.photo}`);
-        item.photo = requiredPic;
-
-        return item;
-      });
-    },
-
     handleSlide(direction) {
       switch (direction) {
         case "next":
@@ -98,7 +92,11 @@ new Vue({
     },
 
     setSlide(work) {
-      this.currentIndex = work - 1;
+      for(let i = 0; i < this.works.length; i += 1) {
+        if (this.works[i].id === work) {
+          this.currentIndex = i;
+        }
+      }
     }
   },
 
@@ -107,13 +105,8 @@ new Vue({
       .get("https://webdev-api.loftschool.com/works/198")
       .then(response => {
         const data = response.data;
-        //-this.works = this.makeArrWithRequiredImages(data);
         this.works = data;
-        console.log('Дата из стейта: ', data);
-        console.log('Работы из стейта: ', this.works);
       })
       .catch(error => console.error(error.message));
-    //-const data = require("../data/works.json");
-    //-this.works = this.makeArrWithRequiredImages(data);
   }
 });
